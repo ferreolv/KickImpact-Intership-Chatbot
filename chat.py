@@ -58,7 +58,7 @@ def inject_custom_css():
 
 inject_custom_css()
 
-def simple_rag_retrieve(query, folder=Path(__file__).parent):
+def simple_rag_retrieve(query, folder=Path(__file__).parent / "data"):
     docs = []
     for md_file in Path(folder).glob("*.md"):
         content = md_file.read_text()
@@ -110,7 +110,7 @@ Answer clearly, concisely, and only based on the loaded context.
 """
 
 # Load context file
-with open(Path(__file__).parent / "data" / "internship_summary.md", "r") as f:
+with open(Path(__file__).parent / "internship_summary.md", "r") as f:
     context = f.read()
 
 # Sidebar
