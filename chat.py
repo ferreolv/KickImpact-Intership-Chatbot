@@ -84,7 +84,7 @@ Answer clearly, concisely, and only based on the loaded context.
 """
 
 # Load context file
-with open("data/internship_summary.md", "r") as f:
+with open("internship_summary.md", "r") as f:
     context = f.read()
 
 # Sidebar
