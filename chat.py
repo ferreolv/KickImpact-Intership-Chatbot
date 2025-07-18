@@ -20,6 +20,10 @@ def inject_custom_css():
             }
 
             /* Style sidebar */
+            section[data-testid="stSidebar"] {
+                width: 225px;
+                min-width: 200px;
+            }
             .css-1d391kg {  /* Sidebar title */
                 font-size: 1.4rem;
                 font-weight: 700;
@@ -41,6 +45,17 @@ def inject_custom_css():
             /* Style chat messages */
             .element-container:has(.stChatMessage) {
                 margin-bottom: 1.5rem;
+            }
+
+            /* Profile bubble colors */
+            .stChatMessage.user img {
+                background-color: #FF7F66;
+                padding: 4px;
+            }
+
+            .stChatMessage.assistant img {
+                background-color: #243D66;
+                padding: 4px;
             }
 
             /* Style header text */
@@ -84,11 +99,13 @@ st.image(str(Path(__file__).parent / "chatbot.png"), width=160, use_container_wi
 with st.expander("💡 Questions you could ask", expanded=False):
     st.markdown("""
     - What did Ferréol build during his internship?
+    - What is KickImpact?           
     - What did Ferréol do in week 3?
     - What skills did Ferréol develop around AI?
     - Who said what during the internship?
     - Tell me a secret about the internship!
     - Is Ferréol a good fit for a strategy analyst role?
+    - Who is Nicolas?
     """)
 
 system_prompt = """
@@ -146,6 +163,13 @@ ax.legend(wedges, labels, title="Tasks", loc="lower center", bbox_to_anchor=(0.5
 st.sidebar.markdown("---")
 st.sidebar.subheader("Time Task Breakdown")
 st.sidebar.pyplot(fig, use_container_width=True)
+
+st.sidebar.markdown("---")
+st.sidebar.subheader("Project Links")
+st.sidebar.markdown("""
+- [KickImpact Landing Page](https://kickimpact.framer.website/)
+🌐
+- [AI Project Submission Platform](https://impact-project-room5.streamlit.app)📥""")
 
 # Chat state
 if "chat_history" not in st.session_state:
