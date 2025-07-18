@@ -58,7 +58,7 @@ def inject_custom_css():
 
 inject_custom_css()
 
-def simple_rag_retrieve(query, folder=Path(__file__).parent / "data"):
+def simple_rag_retrieve(query, folder=Path(__file__).parent):
     docs = []
     for md_file in Path(folder).glob("*.md"):
         content = md_file.read_text()
