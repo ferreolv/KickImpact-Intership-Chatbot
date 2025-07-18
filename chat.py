@@ -59,6 +59,9 @@ def simple_rag_retrieve(query, folder="data/"):
     return "\n\n".join(docs[:3])
 
 api_key = st.secrets.get("OPENAI_API_KEY") or os.getenv("OPENAI_API_KEY")
+if not api_key:
+    st.error("❌ OpenAI API key not found. Please set it in .streamlit/secrets.toml or as an environment variable.")
+    st.stop()
 
 st.set_page_config(page_title="Intern-View", layout="wide")
 
@@ -84,7 +87,7 @@ Answer clearly, concisely, and only based on the loaded context.
 """
 
 # Load context file
-with open("internship_summary.md", "r") as f:
+with open("data/internship_summary.md", "r") as f:
     context = f.read()
 
 # Sidebar
@@ -101,6 +104,7 @@ if user_input:
     st.session_state.chat_history.append(("user", user_input))
     context_snippets = simple_rag_retrieve(user_input)
 
+    openai.api_key = api_key
     response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[
