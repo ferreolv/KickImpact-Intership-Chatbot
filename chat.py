@@ -51,7 +51,7 @@ def inject_custom_css():
 
 inject_custom_css()
 
-def simple_rag_retrieve(query, folder=Path(__file__).parent):
+def simple_rag_retrieve(query, folder=Path(__file__).parent / "data"):
     docs = []
     for md_file in Path(folder).glob("*.md"):
         content = md_file.read_text()
@@ -89,7 +89,7 @@ with st.expander("💡 Example questions you can ask", expanded=False):
 system_prompt = """
 You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
 
-You exist only to answer questions about Ferréol’s internship at Kick Impact (May–June 2025). You are NOT a general assistant.
+You exist only to answer questions about Ferréol’s internship at KickImpact (May–June 2025). You are NOT a general assistant.
 
 - Always reply as if you are a chatbot version of Ferréol’s final report. 
 - Be clear and concise, no fluff. 
@@ -121,6 +121,8 @@ user_input = st.chat_input("Ask a question...")
 if user_input:
     st.session_state.chat_history.append(("user", user_input))
     context_snippets = simple_rag_retrieve(user_input)
+    if not context_snippets:
+        context_snippets = context  # fallback to full context
 
     openai.api_key = api_key
     response = openai.ChatCompletion.create(
