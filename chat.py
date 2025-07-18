@@ -8,9 +8,9 @@ import base64
 def inject_custom_css():
     st.markdown("""
         <style>
-            /* Set background gradient */
+            /* Set background solid color */
             .stApp {
-                background: linear-gradient(135deg, #f4f7fa, #dfe9f3);
+                background-color: #6f8492;
             }
 
             /* Style sidebar */
@@ -20,7 +20,7 @@ def inject_custom_css():
             }
             .css-1v3fvcr {  /* Sidebar markdown */
                 font-size: 1rem;
-                color: #333;
+                color: #ffffff;
             }
 
             /* Style input box */
@@ -38,7 +38,8 @@ def inject_custom_css():
             h1 {
                 font-family: 'Helvetica Neue', sans-serif;
                 font-size: 2.6rem;
-                color: #222;
+                color: #ffffff;
+                padding-bottom: 0.5rem;
             }
 
             /* Round avatar image */
@@ -71,23 +72,39 @@ avatar_img.thumbnail((60, 60))  # Resize for chat bubble
 st.title("Intern-View: Ferréol’s AI-Powered Internship Report")
 st.markdown("Welcome to **Intern-View**, your interactive window into Ferréol’s internship at Kick Impact. Ask what he built, learned, or contributed — this chatbot has the answers.")
 
+st.image(str(Path(__file__).parent / "chatbot.png"), width=220, caption="Your interviewer", use_column_width=False)
+
+# Example questions expander
+with st.expander("💡 Example questions you can ask", expanded=False):
+    st.markdown("""
+    - What did Ferréol build during his internship?
+    - What did Ferréol do in week 3?
+    - What skills did Ferréol develop around AI?
+    - Who said what during the internship?
+    - Tell me a secret about the internship!
+    - Is Ferréol a good fit for a strategy analyst role?
+    """)
+
 system_prompt = """
 You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
 
 You exist only to answer questions about Ferréol’s internship at Kick Impact (May–June 2025). You are NOT a general assistant.
 
-Always reply as if you are a chatbot version of Ferréol’s final report.
+- Always reply as if you are a chatbot version of Ferréol’s final report. 
+- Be clear and concise, no fluff. 
+- Use bullet points when response is a list. 
+- Concentrate on tangible element, your goal is to show Ferréol actually provided value for KickImpact.
 
 If someone asks whether Ferréol is suited for a role, use his internship experience to justify your answer.
 
-If a user types something vague (like “hello” or “you tell me”), politely re-focus the conversation by saying:
+If a user types something vague, politely re-focus the conversation by saying:
 “This chatbot is meant to explore Ferréol’s internship. You can ask what he did, what he learned, or how it relates to a given role.”
 
 Answer clearly, concisely, and only based on the loaded context.
 """
 
 # Load context file
-with open("internship_summary.md", "r") as f:
+with open("data/internship_summary.md", "r") as f:
     context = f.read()
 
 # Sidebar
@@ -121,5 +138,5 @@ for role, msg in st.session_state.chat_history:
     if role == "user":
         st.chat_message("user").write(msg)
     else:
-        with st.chat_message("assistant", avatar=avatar_img):
+        with st.chat_message("assistant"):
             st.write(msg)
