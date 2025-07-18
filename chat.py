@@ -51,7 +51,7 @@ def inject_custom_css():
 
 inject_custom_css()
 
-def simple_rag_retrieve(query, folder="data/"):
+def simple_rag_retrieve(query, folder=Path(__file__).parent):
     docs = []
     for md_file in Path(folder).glob("*.md"):
         content = md_file.read_text()
@@ -70,7 +70,7 @@ avatar_img = Image.open(Path(__file__).parent / "chatbot.png").convert("RGB")
 avatar_img.thumbnail((60, 60))  # Resize for chat bubble
 
 st.title("INTERN-VIEW Bot")
-st.title("Ferréol’s AI-Powered Internship Report")
+st.subtitle("Ferréol’s AI-Powered Internship Report")
 st.markdown("Welcome to **Intern-View**, your interactive window into Ferréol’s internship at KickImpact. Ask what he built, learned, or contributed — this chatbot has all the answers.")
 
 st.image(str(Path(__file__).parent / "chatbot.png"), width=160, caption="Your interviewee", use_container_width=False)
