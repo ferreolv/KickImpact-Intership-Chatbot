@@ -69,10 +69,11 @@ st.set_page_config(page_title="Intern-View", layout="wide")
 avatar_img = Image.open(Path(__file__).parent / "chatbot.png").convert("RGB")
 avatar_img.thumbnail((60, 60))  # Resize for chat bubble
 
-st.title("Intern-View: Ferréol’s AI-Powered Internship Report")
-st.markdown("Welcome to **Intern-View**, your interactive window into Ferréol’s internship at Kick Impact. Ask what he built, learned, or contributed — this chatbot has the answers.")
+st.title("INTERN-VIEW Bot")
+st.title("Ferréol’s AI-Powered Internship Report")
+st.markdown("Welcome to **Intern-View**, your interactive window into Ferréol’s internship at KickImpact. Ask what he built, learned, or contributed — this chatbot has all the answers.")
 
-st.image(str(Path(__file__).parent / "chatbot.png"), width=160, caption="Your interviewer", use_container_width=False)
+st.image(str(Path(__file__).parent / "chatbot.png"), width=160, caption="Your interviewee", use_container_width=False)
 
 # Example questions expander
 with st.expander("💡 Example questions you can ask", expanded=False):
