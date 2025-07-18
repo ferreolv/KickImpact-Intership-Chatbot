@@ -10,7 +10,7 @@ def inject_custom_css():
         <style>
             /* Set background solid color */
             .stApp {
-                background-color: #6f8492;
+                background-color: white;
             }
 
             /* Style sidebar */
@@ -20,7 +20,7 @@ def inject_custom_css():
             }
             .css-1v3fvcr {  /* Sidebar markdown */
                 font-size: 1rem;
-                color: #ffffff;
+                color: #6f8492;
             }
 
             /* Style input box */
@@ -38,7 +38,7 @@ def inject_custom_css():
             h1 {
                 font-family: 'Helvetica Neue', sans-serif;
                 font-size: 2.6rem;
-                color: #ffffff;
+                color: #6f8492;
                 padding-bottom: 0.5rem;
             }
 
@@ -72,7 +72,7 @@ avatar_img.thumbnail((60, 60))  # Resize for chat bubble
 st.title("Intern-View: Ferréol’s AI-Powered Internship Report")
 st.markdown("Welcome to **Intern-View**, your interactive window into Ferréol’s internship at Kick Impact. Ask what he built, learned, or contributed — this chatbot has the answers.")
 
-st.image(str(Path(__file__).parent / "chatbot.png"), width=220, caption="Your interviewer", use_column_width=False)
+st.image(str(Path(__file__).parent / "chatbot.png"), width=160, caption="Your interviewer", use_container_width=False)
 
 # Example questions expander
 with st.expander("💡 Example questions you can ask", expanded=False):
@@ -104,7 +104,7 @@ Answer clearly, concisely, and only based on the loaded context.
 """
 
 # Load context file
-with open("internship_summary.md", "r") as f:
+with open(Path(__file__).parent / "internship_summary.md", "r") as f:
     context = f.read()
 
 # Sidebar
