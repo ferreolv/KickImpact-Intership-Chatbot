@@ -116,7 +116,7 @@ with st.expander("📸 Some Internship Highlights", expanded=False):
     
     # Team bike outing
     bike_img = Image.open(Path(__file__).parent / "bike.jpeg")
-    st.image(bike_img, caption="Traditional bike ride at Salève’s ""Col de la Croisette"" before work.", use_container_width=True)
+    st.image(bike_img, caption="Traditional bike ride at Salève’s "Col de la Croisette" before work.", use_container_width=True)
 
     # Lake swim highlight
     lake_img = Image.open(Path(__file__).parent / "lake.jpg")
@@ -167,4 +167,57 @@ labels = [
 sizes = [5, 15, 15, 35, 15, 5, 5, 5]
 colors = ['#243D66', '#516F98', '#D97A45', '#6f8492', '#9FB0C1', '#FFAD99', '#D6DCE5', '#8DA4C8']
 
-fig, ax = plt.subplots(figsize=(6, 6
+fig, ax = plt.subplots(figsize=(6, 6))
+wedges, texts, autotexts = ax.pie(
+    sizes,
+    colors=colors,
+    startangle=90,
+    autopct='%1.1f%%',
+    textprops={'color': "white", 'fontsize': 9},
+    wedgeprops={'edgecolor': 'white'}
+)
+ax.axis('equal')
+ax.legend(wedges, labels, title="Tasks", loc="lower center", bbox_to_anchor=(0.5, -0.2), ncol=2, fontsize=8)
+
+st.sidebar.markdown("---")
+st.sidebar.subheader("Time Task Breakdown")
+st.sidebar.pyplot(fig, use_container_width=True)
+
+st.sidebar.markdown("---")
+st.sidebar.subheader("Project Links")
+st.sidebar.markdown("""
+- [KickImpact Landing Page](https://kickimpact.framer.website/)🌐
+- [AI Project Submission Platform](https://impact-project-room5.streamlit.app)📥
+""")
+
+# Chat state
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+
+user_input = st.chat_input("Ask a question...")
+
+if user_input:
+    st.session_state.chat_history.append(("user", user_input))
+    context_snippets = simple_rag_retrieve(user_input)
+    if not context_snippets:
+        context_snippets = context  # fallback to full context
+
+    openai.api_key = api_key
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[
+            {"role": "system", "content": system_prompt + "\n\nContext:\n" + context_snippets},
+            *[{"role": role, "content": msg} for role, msg in st.session_state.chat_history],
+        ],
+    )
+
+    reply = response['choices'][0]['message']['content']
+    st.session_state.chat_history.append(("assistant", reply))
+
+# Display chat
+for role, msg in st.session_state.chat_history:
+    if role == "user":
+        st.chat_message("user").write(msg)
+    else:
+        with st.chat_message("assistant"):
+            st.write(msg)
