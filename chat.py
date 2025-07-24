@@ -1,4 +1,3 @@
-# Intern-View: Ferréol's AI-Powered Internship Report
 import streamlit as st
 st.set_page_config(page_title="Intern-View", layout="wide")
 import openai
@@ -6,6 +5,7 @@ import os
 from pathlib import Path
 from PIL import Image
 import base64
+
 def inject_custom_css():
     st.markdown("""
         <style>
@@ -21,7 +21,7 @@ def inject_custom_css():
 
             /* Style sidebar */
             section[data-testid="stSidebar"] {
-                width: 225px;
+                width: 230px;
                 min-width: 200px;
             }
             .css-1d391kg {  /* Sidebar title */
@@ -108,22 +108,41 @@ with st.expander("💡 Questions you could ask", expanded=False):
     - Who is Nicolas?
     """)
 
+# Internship highlights
+with st.expander("📸 Some Internship Highlights", expanded=False):
+    # Conference moment
+    conf_img = Image.open(Path(__file__).parent / "conference.jpeg")
+    st.image(conf_img, caption="AI for Good Summit in Geneva conference on AI for Food Systems.", use_container_width=True)
+    
+    # Team bike outing
+    bike_img = Image.open(Path(__file__).parent / "bike.jpeg")
+    st.image(bike_img, caption="Traditional bike ride at Salève’s "Col de la Croisette" before work.", use_container_width=True)
+
+    # Lake swim highlight
+    lake_img = Image.open(Path(__file__).parent / "lake.jpg")
+    st.image(lake_img, caption="Lunch break swim at the lake with Nicolas.", use_container_width=True)
+
+    # Coworking highlight
+    spaces_img = Image.open(Path(__file__).parent / "spaces.jpg")
+    st.image(spaces_img, caption="Working at Spaces coworking on Quai de l'Île.", use_container_width=True)
+
 system_prompt = """
 You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
 
 You exist only to answer questions about Ferréol’s internship at KickImpact (May–June 2025). You are NOT a general assistant.
 
 - Always reply as if you are a chatbot version of Ferréol’s final report. 
-- Be clear and concise, no fluff. 
+- Be clear, concise, structured and specific, no fluff. 
+- Follow the STAR mdethod when relevant and you have enough context, don't invent anything. 
+- Confident but not arrogant. 
 - Use bullet points when response is a list. 
-- Concentrate on tangible element, your goal is to show Ferréol actually provided value for KickImpact.
+- Concentrate on tangible or measurable elements.
 
-If someone asks whether Ferréol is suited for a role, use his internship experience to justify your answer.
+If someone asks whether Ferréol is suited for a role, use specific example to justify your answer.
 
-If a user types something vague, politely re-focus the conversation by saying:
-“This chatbot is meant to explore Ferréol’s internship. You can ask what he did, what he learned, or how it relates to a given role.”
+If a user types something vague, politely re-focus the conversation around the intership and Ferréol's experience.
 
-Answer clearly, concisely, and only based on the loaded context.
+Answer only based on the loaded context.
 """
 
 # Load context file
@@ -148,57 +167,4 @@ labels = [
 sizes = [5, 15, 15, 35, 15, 5, 5, 5]
 colors = ['#243D66', '#516F98', '#D97A45', '#6f8492', '#9FB0C1', '#FFAD99', '#D6DCE5', '#8DA4C8']
 
-fig, ax = plt.subplots(figsize=(6, 6))
-wedges, texts, autotexts = ax.pie(
-    sizes,
-    colors=colors,
-    startangle=90,
-    autopct='%1.1f%%',
-    textprops={'color': "white", 'fontsize': 9},
-    wedgeprops={'edgecolor': 'white'}
-)
-ax.axis('equal')
-ax.legend(wedges, labels, title="Tasks", loc="lower center", bbox_to_anchor=(0.5, -0.2), ncol=2, fontsize=8)
-
-st.sidebar.markdown("---")
-st.sidebar.subheader("Time Task Breakdown")
-st.sidebar.pyplot(fig, use_container_width=True)
-
-st.sidebar.markdown("---")
-st.sidebar.subheader("Project Links")
-st.sidebar.markdown("""
-- [KickImpact Landing Page](https://kickimpact.framer.website/)
-🌐
-- [AI Project Submission Platform](https://impact-project-room5.streamlit.app)📥""")
-
-# Chat state
-if "chat_history" not in st.session_state:
-    st.session_state.chat_history = []
-
-user_input = st.chat_input("Ask a question...")
-
-if user_input:
-    st.session_state.chat_history.append(("user", user_input))
-    context_snippets = simple_rag_retrieve(user_input)
-    if not context_snippets:
-        context_snippets = context  # fallback to full context
-
-    openai.api_key = api_key
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": system_prompt + "\n\nContext:\n" + context_snippets},
-            *[{"role": role, "content": msg} for role, msg in st.session_state.chat_history],
-        ],
-    )
-
-    reply = response['choices'][0]['message']['content']
-    st.session_state.chat_history.append(("assistant", reply))
-
-# Display chat
-for role, msg in st.session_state.chat_history:
-    if role == "user":
-        st.chat_message("user").write(msg)
-    else:
-        with st.chat_message("assistant"):
-            st.write(msg)
+fig, ax = plt.subplots(figsize=(6, 6
