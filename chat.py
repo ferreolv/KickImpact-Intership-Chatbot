@@ -125,7 +125,7 @@ with open(Path(__file__).parent / "internship_summary.md", "r") as f:
 # Sidebar
 st.sidebar.subheader("Some Context...")
 st.sidebar.markdown(
-    "Ferréol completed a 2-month internship (May–June 2025) at KickImpact,"
+    "Ferréol completed a 2-month internship (June-July 2025) at KickImpact,"
     " a Swiss impact investment startup founded by Nicolas Couture-Miambanzila."
 )
 st.sidebar.markdown("His work focused on **AI applications** in impact project analysis, internal tools, and startup research.")
