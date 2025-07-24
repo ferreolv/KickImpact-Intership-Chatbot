@@ -97,7 +97,7 @@ with st.expander("📸 Some Internship Highlights", expanded=False):
         img_path = Path(__file__).parent / fname
         if img_path.exists():
             img = Image.open(img_path)
-            st.image(img, caption=caption, width=300)  # <-- Adjust width here
+            st.image(img, caption=caption, width=500)  
 
 system_prompt = """
 You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
@@ -170,7 +170,7 @@ if user_input:
     context_snippets = simple_rag_retrieve(user_input) or context
     openai.api_key = api_key
 
-    with st.spinner("🤖 Thinking..."):
+    with st.spinner("Thinking..."):
         response = openai.ChatCompletion.create(
             model="gpt-4",
             messages=[
