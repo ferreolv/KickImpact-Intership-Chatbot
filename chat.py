@@ -97,7 +97,7 @@ with st.expander("📸 Some Internship Highlights", expanded=False):
         img_path = Path(__file__).parent / fname
         if img_path.exists():
             img = Image.open(img_path)
-            st.image(img, caption=caption, width=500)  
+            st.image(img, caption=caption, width=600)  
 
 system_prompt = """
 You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
