@@ -88,7 +88,7 @@ with st.expander("💡 Questions you could ask", expanded=False):
 highlight_images = [
     ("conference.jpeg", "AI for Good Summit in Geneva conference on AI for Food Systems."),
     ("bike.jpeg", 'Traditional bike ride at Salève’s "Col de la Croisette" before work.'),
-    ("lake.jpg", "Lunch break swim at the lake with Nicolas."),
+    ("lake.jpg", "Going to lunch break swim at the lake with Nicolas."),
     ("spaces.jpg", "Working at Spaces coworking on Quai de l'Île.")
 ]
 
@@ -97,7 +97,7 @@ with st.expander("📸 Some Internship Highlights", expanded=False):
         img_path = Path(__file__).parent / fname
         if img_path.exists():
             img = Image.open(img_path)
-            st.image(img, caption=caption, use_container_width=True)
+            st.image(img, caption=caption, width=300)  # <-- Adjust width here
 
 system_prompt = """
 You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
@@ -169,14 +169,17 @@ if user_input:
     st.session_state.chat_history.append(("user", user_input))
     context_snippets = simple_rag_retrieve(user_input) or context
     openai.api_key = api_key
-    response = openai.ChatCompletion.create(
-        model="gpt-4", messages=[
-            {"role":"system","content":system_prompt + "\n\nContext:\n" + context_snippets},
-            *[{"role":r,"content":msg} for r,msg in st.session_state.chat_history]
-        ]
-    )
-    reply = response.choices[0].message.content
-    st.session_state.chat_history.append(("assistant", reply))
+
+    with st.spinner("🤖 Thinking..."):
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": system_prompt + "\n\nContext:\n" + context_snippets},
+                *[{"role": r, "content": msg} for r, msg in st.session_state.chat_history]
+            ]
+        )
+        reply = response.choices[0].message.content
+        st.session_state.chat_history.append(("assistant", reply))
 
 for role, msg in st.session_state.chat_history:
     if role == 'user': st.chat_message('user').write(msg)
