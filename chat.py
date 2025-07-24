@@ -116,7 +116,7 @@ with st.expander("📸 Some Internship Highlights", expanded=False):
     
     # Team bike outing
     bike_img = Image.open(Path(__file__).parent / "bike.jpeg")
-    st.image(bike_img, caption="Traditional bike ride at Salève’s "Col de la Croisette" before work.", use_container_width=True)
+    st.image(bike_img, caption="Traditional bike ride at Salève’s ""Col de la Croisette"" before work.", use_container_width=True)
 
     # Lake swim highlight
     lake_img = Image.open(Path(__file__).parent / "lake.jpg")
