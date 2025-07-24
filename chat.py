@@ -24,15 +24,8 @@ def inject_custom_css():
                 width: 230px;
                 min-width: 200px;
             }
-            .css-1d391kg {  /* Sidebar title */
-                font-size: 1.4rem;
-                font-weight: 700;
-                color: #243D66;
-            }
-            .css-1v3fvcr {  /* Sidebar markdown */
-                font-size: 1rem;
-                color: #243D66;
-            }
+            .css-1d391kg { font-size: 1.4rem; font-weight: 700; color: #243D66; }
+            .css-1v3fvcr { font-size: 1rem; color: #243D66; }
 
             /* Style input box */
             .stTextInput>div>div>input {
@@ -43,31 +36,11 @@ def inject_custom_css():
             }
 
             /* Style chat messages */
-            .element-container:has(.stChatMessage) {
-                margin-bottom: 1.5rem;
-            }
-
-            /* Profile bubble colors */
-            .stChatMessage.user img {
-                background-color: #FF7F66;
-                padding: 4px;
-            }
-
-            .stChatMessage.assistant img {
-                background-color: #243D66;
-                padding: 4px;
-            }
-
-            /* Style header text */
-            h1, h2, h3, h4, h5, h6 {
-                font-family: 'Roboto Mono', monospace;
-                color: #243D66;
-            }
-
-            /* Round avatar image */
-            .stChatMessage img {
-                border-radius: 50%;
-            }
+            .element-container:has(.stChatMessage) { margin-bottom: 1.5rem; }
+            .stChatMessage.user img { background-color: #FF7F66; padding: 4px; }
+            .stChatMessage.assistant img { background-color: #243D66; padding: 4px; }
+            h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Mono', monospace; color: #243D66; }
+            .stChatMessage img { border-radius: 50%; }
         </style>
     """, unsafe_allow_html=True)
 
@@ -86,20 +59,23 @@ if not api_key:
     st.error("❌ OpenAI API key not found. Please set it in .streamlit/secrets.toml or as an environment variable.")
     st.stop()
 
-avatar_img = Image.open(Path(__file__).parent / "chatbot.png").convert("RGB")
-avatar_img.thumbnail((60, 60))  # Resize for chat bubble
+avatar_path = Path(__file__).parent / "chatbot.png"
+if avatar_path.exists():
+    avatar_img = Image.open(avatar_path).convert("RGB")
+    avatar_img.thumbnail((60, 60))
 
 st.title("*INTERN-VIEW*")
 st.subheader("Ferréol’s AI-Powered Internship Report")
 st.markdown("Welcome to **Intern-View**, your interactive window into Ferréol’s internship at KickImpact. Ask what he built, learned, or contributed — this chatbot has all the answers.")
 
-st.image(str(Path(__file__).parent / "chatbot.png"), width=160, use_container_width=False)
+if avatar_path.exists():
+    st.image(str(avatar_path), width=160)
 
-# Example questions expander
+# Example questions
 with st.expander("💡 Questions you could ask", expanded=False):
     st.markdown("""
     - What did Ferréol build during his internship?
-    - What is KickImpact?           
+    - What is KickImpact?
     - What did Ferréol do in week 3?
     - What skills did Ferréol develop around AI?
     - Who said what during the internship?
@@ -109,115 +85,99 @@ with st.expander("💡 Questions you could ask", expanded=False):
     """)
 
 # Internship highlights
+highlight_images = [
+    ("conference.jpeg", "AI for Good Summit in Geneva conference on AI for Food Systems."),
+    ("bike.jpeg", 'Traditional bike ride at Salève’s "Col de la Croisette" before work.'),
+    ("lake.jpg", "Lunch break swim at the lake with Nicolas."),
+    ("spaces.jpg", "Working at Spaces coworking on Quai de l'Île.")
+]
+
 with st.expander("📸 Some Internship Highlights", expanded=False):
-    # Conference moment
-    conf_img = Image.open(Path(__file__).parent / "conference.jpeg")
-    st.image(conf_img, caption="AI for Good Summit in Geneva conference on AI for Food Systems.", use_container_width=True)
-    
-    # Team bike outing
-    bike_img = Image.open(Path(__file__).parent / "bike.jpeg")
-    st.image(bike_img, caption='Traditional bike ride at Salève’s "Col de la Croisette" before work.', use_container_width=True)
-
-    # Lake swim highlight
-    lake_img = Image.open(Path(__file__).parent / "lake.jpg")
-    st.image(lake_img, caption="Lunch break swim at the lake with Nicolas.", use_container_width=True)
-
-    # Coworking highlight
-    spaces_img = Image.open(Path(__file__).parent / "spaces.jpg")
-    st.image(spaces_img, caption="Working at Spaces coworking on Quai de l'Île.", use_container_width=True)
+    for fname, caption in highlight_images:
+        img_path = Path(__file__).parent / fname
+        if img_path.exists():
+            img = Image.open(img_path)
+            st.image(img, caption=caption, use_container_width=True)
 
 system_prompt = """
 You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
 
 You exist only to answer questions about Ferréol’s internship at KickImpact (May–June 2025). You are NOT a general assistant.
 
-- Always reply as if you are a chatbot version of Ferréol’s final report. 
-- Be clear, concise, structured and specific, no fluff. 
-- Follow the STAR mdethod when relevant and you have enough context, don't invent anything. 
-- Confident but not arrogant. 
-- Use bullet points when response is a list. 
+- Always reply as if you are a chatbot version of Ferréol’s final report.
+- Be clear, concise, structured and specific, no fluff.
+- Follow the STAR method when relevant and you have enough context, don't invent anything.
+- Confident but not arrogant.
+- Use bullet points when response is a list.
 - Concentrate on tangible or measurable elements.
 
-If someone asks whether Ferréol is suited for a role, use specific example to justify your answer.
+If someone asks whether Ferréol is suited for a role, use specific examples to justify your answer.
 
-If a user types something vague, politely re-focus the conversation around the intership and Ferréol's experience.
+If a user types something vague, politely re-focus the conversation around the internship and Ferréol's experience.
 
 Answer only based on the loaded context.
 """
 
-# Load context file
+# Load host context
 with open(Path(__file__).parent / "internship_summary.md", "r") as f:
     context = f.read()
 
 # Sidebar
 st.sidebar.subheader("Some Context...")
-st.sidebar.markdown("""Ferréol completed a 2-month internship (May–June 2025) at KickImpact, a Swiss impact investment startup founded by Nicolas Couture-Miambanzila.
-
-His work focused on **AI applications** in impact project analysis, internal tools, and startup research.""")
+st.sidebar.markdown(
+    "Ferréol completed a 2-month internship (May–June 2025) at KickImpact,"
+    " a Swiss impact investment startup founded by Nicolas Couture-Miambanzila."
+)
+st.sidebar.markdown("His work focused on **AI applications** in impact project analysis, internal tools, and startup research.")
 
 import matplotlib.pyplot as plt
-
-# Pie chart data
+# Time allocation pie chart
 labels = [
     "Meetings with AI specialists", "Data analysis (Excel/Python)",
     "Landing page (Framer)", "AI platform for impact fund",
     "Internal AI optimization", "Testing AI tools",
     "AI conferences", "Research on AI opportunities"
 ]
+
 sizes = [5, 15, 15, 35, 15, 5, 5, 5]
-colors = ['#243D66', '#516F98', '#D97A45', '#6f8492', '#9FB0C1', '#FFAD99', '#D6DCE5', '#8DA4C8']
 
 fig, ax = plt.subplots(figsize=(6, 6))
 wedges, texts, autotexts = ax.pie(
-    sizes,
-    colors=colors,
-    startangle=90,
-    autopct='%1.1f%%',
-    textprops={'color': "white", 'fontsize': 9},
-    wedgeprops={'edgecolor': 'white'}
+    sizes, startangle=90, autopct='%1.1f%%', textprops={'color':'white','fontsize':9}, wedgeprops={'edgecolor':'white'}
 )
 ax.axis('equal')
-ax.legend(wedges, labels, title="Tasks", loc="lower center", bbox_to_anchor=(0.5, -0.2), ncol=2, fontsize=8)
+ax.legend(wedges, labels, title="Tasks", loc="lower center", bbox_to_anchor=(0.5,-0.2), ncol=2, fontsize=8)
 
 st.sidebar.markdown("---")
 st.sidebar.subheader("Time Task Breakdown")
-st.sidebar.pyplot(fig, use_container_width=True)
+st.sidebar.pyplot(fig)
 
 st.sidebar.markdown("---")
 st.sidebar.subheader("Project Links")
-st.sidebar.markdown("""
-- [KickImpact Landing Page](https://kickimpact.framer.website/)🌐
-- [AI Project Submission Platform](https://impact-project-room5.streamlit.app)📥
-""")
+st.sidebar.markdown(
+    "- [KickImpact Landing Page](https://kickimpact.framer.website/) 🌐\n"
+    "- [AI Project Submission Platform](https://impact-project-room5.streamlit.app) 📥"
+)
 
 # Chat state
-if "chat_history" not in st.session_state:
+if 'chat_history' not in st.session_state:
     st.session_state.chat_history = []
 
 user_input = st.chat_input("Ask a question...")
 
 if user_input:
     st.session_state.chat_history.append(("user", user_input))
-    context_snippets = simple_rag_retrieve(user_input)
-    if not context_snippets:
-        context_snippets = context  # fallback to full context
-
+    context_snippets = simple_rag_retrieve(user_input) or context
     openai.api_key = api_key
     response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": system_prompt + "\n\nContext:\n" + context_snippets},
-            *[{"role": role, "content": msg} for role, msg in st.session_state.chat_history],
-        ],
+        model="gpt-4", messages=[
+            {"role":"system","content":system_prompt + "\n\nContext:\n" + context_snippets},
+            *[{"role":r,"content":msg} for r,msg in st.session_state.chat_history]
+        ]
     )
-
-    reply = response['choices'][0]['message']['content']
+    reply = response.choices[0].message.content
     st.session_state.chat_history.append(("assistant", reply))
 
-# Display chat
 for role, msg in st.session_state.chat_history:
-    if role == "user":
-        st.chat_message("user").write(msg)
-    else:
-        with st.chat_message("assistant"):
-            st.write(msg)
+    if role == 'user': st.chat_message('user').write(msg)
+    else: st.chat_message('assistant').write(msg)
