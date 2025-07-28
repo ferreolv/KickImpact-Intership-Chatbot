@@ -8,7 +8,19 @@ import base64
 
 def inject_custom_css():
     st.markdown("""
-        <style>
+    <style>
+        /* desktop styles (keep yours) */
+
+        /* ----- MOBILE OPTIMISATION ----- */
+        @media (max-width: 768px){
+            section[data-testid="stSidebar"]{display:none;}   /* hide sidebar */
+            .block-container{padding:1rem !important;}        /* tighter margins */
+            h1{font-size:1.6rem;} h2{font-size:1.3rem;}       /* smaller headings */
+            img{max-width:100%;height:auto;}                  /* responsive images */
+            .stTextInput>div>div>input{font-size:0.9rem;}     /* readable inputs */
+        }
+    </style>
+    """, unsafe_allow_html=True)
             /* Set background solid color */
             .stApp {
                 background-color: white;
