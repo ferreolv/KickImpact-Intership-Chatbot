@@ -9,7 +9,7 @@
 * **Mission:** Turn AI into a leverage layer for Kick Impact’s internal workflows and venture portfolio (deal screening → reporting → governance).
 * **Key Outputs Delivered:**
 
-  * **KI-AIS** (Kick Impact Internship AI Strategist) meta-agent + 6 venture sub-agents.
+  * **Kick Impact Internship AI Strategist** meta-agent + 6 venture sub-agents.
   * **Impact Project Room** (Streamlit): submission, ingestion, version tracking, dashboards, portfolio views (NCGE/NCGD).
   * **Quarterly Report Orchestrator**: GPT-based coordinator for standardized 2-page investor updates.
   * **Admin tooling**: prompt libraries, RAG patterns, instruction architectures.
