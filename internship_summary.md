@@ -1,117 +1,200 @@
-Below is a clean, organised internship report (intern point of view) you can drop into a doc / Notion / LinkedIn “featured” post. It is bullet-heavy, fact-based, and concise. I also added a 1-paragraph LinkedIn blurb up front.
+🚀 **Internship Report — Ferréol de la Ville**
+*Kick Impact SA · Monday 2 June – Friday 25 July 2025*
+**Theme:** Applying AI (LLMs, agents, RAG) to accelerate an impact-finance holding’s operations, portfolio intelligence, and venture design.
 
-⸻
+---
 
-🚀 Internship Report — Ferréol de la Ville
+## Executive Summary
 
-Kick Impact SA · Monday 2 June - Friday 25 July 2025
-Theme: Applying AI (LLMs, agents, RAG) to accelerate an impact-finance holding’s operations, portfolio intelligence, and venture design. ￼
+* **Mission:** Turn AI into a leverage layer for Kick Impact’s internal workflows and venture portfolio (deal screening → reporting → governance).
+* **Key Outputs Delivered:**
 
-⸻
+  * **KI-AIS** (Kick Impact Internship AI Strategist) meta-agent + 6 venture sub-agents.
+  * **Impact Project Room** (Streamlit): submission, ingestion, version tracking, dashboards, portfolio views (NCGE/NCGD).
+  * **Quarterly Report Orchestrator**: GPT-based coordinator for standardized 2-page investor updates.
+  * **Admin tooling**: prompt libraries, RAG patterns, instruction architectures.
+  * **Strategic research**: Benchmarked Naera, Clarity AI, Gifftid, LangChain, CrewAI, and AI x quantum for sustainable finance.
+* **Value Created:** Repeatable AI operating system, faster pipeline triage, standardized governance/reporting, and sharper investment narrative.
 
-1) Executive summary
-	•	Mission: Turn AI into a leverage layer for Kick Impact’s internal workflows and its venture portfolio (deal screening → reporting → governance).
-	•	Core outputs delivered:
-	•	KI-AIS (Kick Impact Internship AI Strategist) meta-agent + 6 venture sub-agents with precise operating manuals.  ￼
-	•	Impact Project Room (Streamlit): end-to-end submission, ingestion, tagging, version history, dashboards, portfolio views (NCGE/NCGD).  ￼
-	•	Quarterly Report Orchestrator GPT: a stepwise coordinator that standardises 2-page investor-grade reports by pulling from each project’s GPT space.  ￼
-	•	Admin & governance tooling: prompts, RAG patterns, token cost sheet, instruction architectures.  ￼
-	•	Strategic research: Benchmarked AI-for-impact stacks (Naera, Clarity AI, Persefoni), agentic frameworks (LangChain, CrewAI), and AI x quantum implications for sustainable finance.  ￼  ￼
-	•	Value created: repeatable AI operating system, faster pipeline triage, decision-grade investor materials, and portfolio-wide standardisation (formats, logic, governance).  ￼  ￼
+---
 
-⸻
+## Weekly Internship Timeline
 
-2) Objectives
-	•	Internal productivity: automate synthesis (docs, board notes), investor-grade deliverables, and reminders/workflows for the founder.
-	•	Venture enablement: design per-project GPT agents + RAG context to answer catalytic-structure / TNFD / blended-finance prompts, quickly.
-	•	Market/tech scan: identify AI-for-impact solutions and agentic/RAG frameworks relevant to Kick Impact’s thesis.
-	•	Platform prototyping: ship a live analysis platform (Streamlit) to organise submissions, filtering, and due-diligence metadata.  ￼
+### 📅 Week 1 (June 2–6)
 
-⸻
+**Theme: Kickoff, Alignment, First AI Directions**
 
-3) Scope of work & key deliverables
+* Onboarded at Spaces Coworking (Quai de l’Ile, Geneva).
+* Defined mission: Internal AI enablement + AI-for-impact venture scouting.
+* Set up GPT tooling and Craft Prompter.
+* Designed first GPT agents and prompt patterns.
+* Meeting with Benoît Gaillard (Caterpillar, GenAI).
 
-3.1 Internal AI Enablement (Kick Impact Core)
-	•	KI-AIS meta-agent to support Nicolas (founder) on:
-	•	Summaries, memos, investor one-pagers
-	•	Capital-raise materials & governance packs
-	•	Reminder / filtering / analysis automation
-	•	Custom GPT instructions for each portfolio venture (CSTI, ParkActive, Nature Catalyst, AxessImpact, Impact Cert, Impetus) — lean, role-specific, decision-oriented.  ￼
-	•	Quarterly Report Orchestrator: orchestrates QX YYYY, collects per-venture updates, injects macro trends, and outputs a 2-page investor-grade draft.  ￼
+### 📅 Week 2 (June 9–13)
 
-3.2 Impact Project Room (Streamlit platform)
-	•	Entrepreneur workflow: submit → AI summary → editable → version history with PIN/ID.
-	•	Admin/GP workflow: filters (sector, region, IRR, SDGs), status stages, full edit history, download all docs, CSV/Excel exports.
-	•	Portfolio interfaces (NCGE/NCGD): add/eject projects, track subsets, read-only dashboards.
-	•	Token & cost guardrails (pay-as-you-go; configurable model choice + budget).  ￼
+**Theme: Framer Site Launch + Startup Benchmarking**
 
-3.3 Strategic Tech Research & Market Scan
-	•	Benchmarked Naera (AI workflow for impact funds) → paused: narrow SOM, limited moat in fast-moving LLM space.  ￼
-	•	Gifftid: early beta, low added value vs no-code alternatives; worth monitoring but not core yet.  ￼
-	•	Agentic Document Extraction (Andrew Ng) flagged as highly relevant for complex PDFs (tables/figures) vs. native ChatGPT parsing.
-	•	Evaluated LangChain, CrewAI for orchestration; RAG vs. context-injection trade-offs documented.  ￼
+* Launched KickImpact website MVP (Framer).
+* Mapped and analyzed AI-for-impact solutions (e.g., Naera).
+* Proposed blog structure and AI content roadmap.
+* Lunch with Naera’s CEO.
 
-3.4 Portfolio Support (Applied Use Cases)
-	•	CSTI: agent framework for green-bond structuring, replicability, FX/sovereign risk probing, MRV integration.  ￼
-	•	Nature Catalyst: submission platform + filtered dashboards for nature-based vehicles.  ￼
-	•	ParkActive: research on biochar carbon-credit monetisation + RAG assistant for compliance/registries.  ￼
-	•	AxessImpact / ReOwn: suggested impact OS ↔ tokenised project-data integrations.  ￼
-	•	Impetus: agent for co-GP structuring, liquidity windows, IPO path, LP governance and ILPA/SFDR alignment.  ￼
+### 📅 Week 3 (June 16–20)
 
-⸻
+**Theme: AI Agent Platform + SharePoint Architecture**
 
-4) Stack, methods & operating patterns
-	•	Tech: Python, Streamlit, OpenAI API, vector retrieval (RAG fundamentals), SharePoint ingestion design.  ￼
-	•	Agent design: pyramid-principle outputs, decision options, inline internal citations, explicit next steps.  ￼
-	•	Governance: project agents keep only stable instructions; dynamic context flows via uploaded docs (<= 40 / project, rotate updates).  ￼
-	•	Security & confidentiality: internal-first (RAG), redact/summarise sensitive data.  ￼
+* Built MVP of Streamlit-based AI project analysis platform.
+* Developed role-based workflows, token tracking, and doc filters.
+* Meeting with Brad: mapped SME impact investing bottlenecks.
+* Wrote follow-up outlining 6 pain points and AI leverage ideas.
 
-⸻
+### 📅 Week 4 (July 1–5)
 
-5) Business impact (how this helped Kick Impact)
-	•	Time saved: templated agents deliver investor-grade drafts, board packs, and structured memos in minutes.  ￼
-	•	Standardisation: consistent quarterly reporting + per-project decision logic = easier governance and cross-venture comparisons.  ￼
-	•	Better pipeline intelligence: Impact Project Room turns scattered submissions into a queryable, filterable, auditable dataset.  ￼
-	•	Investment thesis sharpening: documented AI-for-impact market gaps, risks, and MoE/defensibility concerns (e.g., Naera, Gifftid).  ￼  ￼
-	•	Macro to micro link: integrated macro section in QR Orchestrator (anti-ESG, rate shifts, nature-positive momentum, geopolitics) → clearer narrative to LPs.  ￼
+**Theme: Dashboard Engineering + AI Tools for Nico**
 
-⸻
+* Added admin/viewer roles, project filters, and dashboards.
+* Created secret portfolio views (NCGE/NCGD).
+* Tool testing (Otter.ai, Whisper, ChatGPT Record) and content summarization.
+* Supported pitch deck revamp and internal AI usage flows.
 
-6) Learning outcomes
+### 📅 Week 5 (July 7–11)
 
-Technical
-	•	Streamlit UI/UX patterns, state handling, admin permissions.  ￼
-	•	Prompt/Agent engineering for real operators (concise, decision-grade, RAG-aware).  ￼
-	•	Vector retrieval logic, token-cost modelling, and orchestration frameworks (LangChain/CrewAI).  ￼
+**Theme: Platform Finalization + Feedback Loops**
 
-Business / Impact
-	•	Blended finance structuring, GP/LP economics, TNFD/CSRD/ISSB compliance angles.  ￼
-	•	Regenerative finance philosophy and the portfolio-logic mindset (cross-venture synergies, equity economics).  ￼
-	•	Macro framing for LPs: anti-ESG backlash, rate cycle, biodiversity finance, geopolitical realignment → narrative fuel for capital raising.  ￼
+* Implemented version control and dashboard visibility by role.
+* Delivered full working version of platform.
+* Structured weekly briefs and logic for Framer + GPT.
 
-⸻
+### 📅 Week 6 (July 14–18)
 
-7) Reflections (intern POV)
-	•	I leave as an AI-native operator, comfortable translating ambiguous strategic needs into working tools.
-	•	Biggest gain: learning to balance quick prototyping with investor-grade clarity.
-	•	Direct mentorship from the founder sharpened my ability to prioritise leverage, not features.  ￼
+**Theme: Governance, Versioning & Final UI Polish**
 
-⸻
+* Built advanced filters, version history, dropdown logic.
+* Attended **AI for Good Summit** (Geneva):
 
-8) Next steps I recommend
-	1.	Package everything as an “AI Operating System” (repo + instruction library + cost sheet + governance SOP).  ￼
-	2.	Deploy the Quarterly Report Orchestrator every quarter and enforce “fetch-from-venture GPT first” discipline.  ￼
-	3.	Harden the Impact Project Room: SharePoint automation, granular auth, budget throttling, and exportable investor views.  ￼
-	4.	Pilot Agentic Document Extraction for complex PDFs (MRV, models, decks).
-	5.	Keep a light watchlist: Naera, Gifftid, Beamlink Bentocells, UN DigitalX pilots, Swiss AI Center partnerships.  ￼  ￼  ￼
+  * Mapped high-signal sessions (AI + Nature, AI governance).
+  * Compiled notes and shared with Nicolas.
+* Finished interactive chatbot report (Rapport de Stage).
 
-⸻
+### 📅 Week 7 (July 21–25)
 
-9) Annex – Key artefacts produced
-	•	KI meta-agent + 6 venture playbooks (CSTI, ParkActive, Nature Catalyst, AxessImpact, Impact Cert, Impetus) + Meeting Transcription GPT.
-	•	Impact Project Room (Streamlit) incorporating admin/portfolio dashboards.  ￼
-	•	Quarterly Report Orchestrator (stepwise, modular, 2-page standard).  ￼
-	•	High-Signal Strategic Notes from AI for good summit (AI for Good, AI governance, quantum lens for impact).  ￼
-	•	Gifftid & Naera assessments.
-  • Meeting with several impact investing and AI leaders.
-	•	Website ops note (Framer CMS, indexing, alternative platform prototype).  ￼
+**Theme: Wrap-up, Transition, Final Deliverables**
+
+* Delivered final Blink prototype + backend logic.
+* Finalized: Framer frontend, GPT weekly briefs, governance tooling.
+* Handoff: cards, files, IBAN, knowledge base.
+
+---
+
+## General Themes Throughout
+
+* **Internal AI optimisation:**
+
+  * GPT prompt engineering, RAG integration, workflow design.
+  * GPT meta-agent for Nicolas + venture-specific copilots.
+* **Strategic conversations:**
+
+  * Brad, Naera CEO, Benoît Gaillard.
+* **Framer Website:**
+
+  * Landing page, CMS proposal, GPT-integrated flows.
+* **Data Analysis:**
+
+  * Pitchbook AUM Excel tables, fund structuring intel.
+* **Knowledge synthesis:**
+
+  * High-signal briefs, meeting notes, GPT-ready reports.
+
+---
+
+## Core Deliverables
+
+### 1. Internal AI Enablement
+
+* KickImpoact meta-agent to support Nicolas:
+
+  * Board prep, memo generation, investor reports.
+* Venture copilots: CSTI, ParkActive, Nature Catalyst, AxessImpact, Impact Cert, Impetus.
+* Quarterly Report Orchestrator: standardizes 2-page investor-grade updates.
+
+### 2. Impact Project Room
+
+* Streamlit-based tool with:
+
+  * Entrepreneur & admin workflows
+  * Editable submission entries, filters, dashboards
+  * Version control, PIN logic, CSV exports
+  * NCGE/NCGD project view control
+
+### 3. Market & Tech Intelligence
+
+* Naera benchmark: paused (low moat, narrow SOM).
+* Gifftid: early beta, low differentiation.
+* Assessed CrewAI vs. LangChain orchestration.
+* AI for Good notes: AI x quantum, governance, nature finance.
+
+### 4. Portfolio Applications
+
+* CSTI: agent for replicable green bond models.
+* Nature Catalyst: filtered dashboards, fund structuring.
+* ParkActive: research on biochar carbon credits.
+* AxessImpact: tokenized governance integration.
+* Impetus: LP liquidity and co-GP strategy logic.
+
+---
+
+## KickImpact Context (Nicolas + Venture Logic)
+
+### Nicolas Couture-Miambanzila – Founder
+
+* 20+ years in sustainable finance: ICE (London), EU ETS, utilities, supply chain traceability, ESG frameworks.
+* Deep expertise in M\&A, carbon markets, circularity, and regulatory alignment (CSRD, EU Green Deal).
+* Based in Geneva, passionate about triathlon, systems change, and long-term value alignment.
+
+### KickImpact – Operator-Led Impact Holding
+
+* Swiss holding company—not a fund.
+* Builds and scales investable, regenerative economy ventures.
+* Offers co-investment platform with skin-in-the-game governance.
+* Ventures include:
+
+  * **CSTI** – Climate-smart African cities
+  * **ParkActive** – Waste-to-energy infrastructure
+  * **Nature Catalyst** – NbS vehicles (Palladium, Cygnum)
+  * **AxessImpact** – Tokenized impact OS
+  * **Impact Cert** – Carbon project certification (Tanzania)
+  * **Impetus** – GP stakes for impact asset managers
+* Embedded approach: KickImpact acts as CIO/Managing Partner across the ventures.
+
+---
+
+## Business Impact for KickImpact
+
+* **Time saved:** GPT-based templates for reporting, decision memos.
+* **Standardization:** Across reporting, dashboards, due diligence.
+* **Pipeline intelligence:** Centralized filtering of all deal flow.
+* **Sharper positioning:** Clearer LP narrative through macro-to-micro framing.
+
+---
+
+## Learning Outcomes
+
+* **Technical:**
+
+  * Streamlit logic, RAG setup, token cost modeling, GPT tuning.
+* **Strategic:**
+
+  * GP/LP mechanics, CSRD/TNFD mapping, regenerative finance logic.
+  * How to prioritize leverage over features in fast-paced environments.
+
+---
+
+## Reflections
+
+* Left the internship as an AI-native operator.
+* Learned to translate strategic uncertainty into working tools.
+* Developed an eye for high-signal insight curation and portfolio-level thinking.
+
+---
+
+
