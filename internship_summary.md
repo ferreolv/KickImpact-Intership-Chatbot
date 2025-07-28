@@ -20,7 +20,7 @@
 
 ## Weekly Internship Timeline
 
-### 📅 Week 1 (June 2–6)
+### 📅 Week 1 (June 2–6) (working at Spaces coworking Space quai de l'ile with Nicolas)
 
 **Theme: Kickoff, Alignment, First AI Directions**
 
@@ -30,7 +30,7 @@
 * Designed first GPT agents and prompt patterns.
 * Meeting with Benoît Gaillard (Caterpillar, GenAI).
 
-### 📅 Week 2 (June 9–13)
+### 📅 Week 2 (June 9–13) (working at Spaces coworking Space de l'ile with Nicolas)
 
 **Theme: Framer Site Launch + Startup Benchmarking**
 
@@ -39,7 +39,7 @@
 * Proposed blog structure and AI content roadmap.
 * Lunch with Naera’s CEO.
 
-### 📅 Week 3 (June 16–20)
+### 📅 Week 3 (June 16–20) (working at Spaces coworking Space de l'ile with Nicolas)
 
 **Theme: AI Agent Platform + SharePoint Architecture**
 
@@ -48,7 +48,7 @@
 * Meeting with Brad: mapped SME impact investing bottlenecks.
 * Wrote follow-up outlining 6 pain points and AI leverage ideas.
 
-### 📅 Week 4 (July 1–5)
+### 📅 Week 4 (July 1–5) (working at Spaces coworking Space Quai de l'ile)
 
 **Theme: Dashboard Engineering + AI Tools for Nico**
 
@@ -57,7 +57,7 @@
 * Tool testing (Otter.ai, Whisper, ChatGPT Record) and content summarization.
 * Supported pitch deck revamp and internal AI usage flows.
 
-### 📅 Week 5 (July 7–11)
+### 📅 Week 5 (July 7–11) (working from home on projects)
 
 **Theme: Platform Finalization + Feedback Loops**
 
@@ -65,18 +65,18 @@
 * Delivered full working version of platform.
 * Structured weekly briefs and logic for Framer + GPT.
 
-### 📅 Week 6 (July 14–18)
+### 📅 Week 6 (July 14–18) (working from home on projects)
 
 **Theme: Governance, Versioning & Final UI Polish**
 
 * Built advanced filters, version history, dropdown logic.
-* Attended **AI for Good Summit** (Geneva):
+* Attended **AI for Good Summit** (Geneva, Palexpo):
 
   * Mapped high-signal sessions (AI + Nature, AI governance).
   * Compiled notes and shared with Nicolas.
 * Finished interactive chatbot report (Rapport de Stage).
 
-### 📅 Week 7 (July 21–25)
+### 📅 Week 7 (July 21–25) (working from home on projects)
 
 **Theme: Wrap-up, Transition, Final Deliverables**
 
@@ -197,4 +197,32 @@
 
 ---
 
+## Areas of improvement
 
+	1.	Frontend Design Precision
+Delivered functional UIs (Streamlit, Framer), but lacked polish in responsiveness, layout, and user onboarding.
+→ Next: Deepen Figma/Tailwind knowledge for cleaner interfaces.
+	
+ 2.	Structured Evaluation of AI Tools
+Startup assessments were insightful but ad hoc.
+→ Next: Build a consistent evaluation grid (e.g. defensibility, ROI, use-case fit).
+	
+ 3.	Backend & Data Layer Depth
+Handled logic in Python, but didn’t build a scalable backend or persistent database.
+→ Next: Learn full-stack patterns (PostgreSQL, auth, file storage).
+	
+ 4.	SharePoint Automation
+Integration stayed manual.
+→ Next: Explore Graph API or Power Automate to enable syncing and smart triggers.
+	
+ 5.	Quantifying AI Gains
+Time-saving was visible, but not tracked.
+→ Next: Define KPIs for automation impact (e.g. memo speed, deal triage time).
+	
+ 6.	Reusable Agent Architecture
+Each agent was effective but bespoke.
+→ Next: Create modular GPT patterns for better scalability across ventures.
+	
+ 7.	Regulatory Awareness
+Explored ESG reporting prompts but not legal/audit risk of AI output.
+→ Next: Study AI governance frameworks (EU AI Act, NIST, CSRD alignment).
