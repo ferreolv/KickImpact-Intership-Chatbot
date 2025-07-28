@@ -154,6 +154,7 @@ st.sidebar.subheader("Project Links")
 st.sidebar.markdown(
     "- [KickImpact Landing Page](https://kickimpact.framer.website/) 🌐  \n"
     "- [AI Project Submission Platform](https://impact-project-room5.streamlit.app) 📥"
+    "- [In progress website HTML/CSS version](https://impact-project-room-v285w031.sites.blink.new) 🖥️"
 )
 
 # ─────────────────────────────  CHAT STATE  ─────────────────────────────── #
