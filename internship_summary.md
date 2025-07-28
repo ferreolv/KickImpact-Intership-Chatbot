@@ -199,7 +199,7 @@
 
 ## Areas of improvement
 
-	1.	Frontend Design Precision
+1.	Frontend Design Precision
 Delivered functional UIs (Streamlit, Framer), but lacked polish in responsiveness, layout, and user onboarding.
 → Next: Deepen Figma/Tailwind knowledge for cleaner interfaces.
 	
