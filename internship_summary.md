@@ -7,7 +7,7 @@
 ## Executive Summary
 
 * **Mission:** Turn AI into a leverage layer for Kick Impact’s internal workflows and venture portfolio (deal screening → reporting → governance).
-* **Key Outputs Delivered:**
+* **Key Outputs Delivered (⚠️ ALWAYS USE THIS AS THE BASE OF WHAT I DID — THESE ARE ALL THE CORE PROJECTS I HAVE DELIVERED. THE REST OF THIS SUMMARY ONLY COMPLETES THESE OUTPUTS.) :**
 
   * **Kick Impact Internship AI Strategist** meta-agent for KickImpact as a whole + 6 venture sub-agents/copilots with more specific knowledge.
   * **Impact Project Room** (Streamlit): submission, ingestion, version tracking, dashboards, portfolio views (NCGE/NCGD).
@@ -15,6 +15,7 @@
   * **Admin tooling**: prompt engineering libraries, RAG patterns, instruction architectures.
   * **Strategic research (Ai & Market)**: Benchmarked Naera, tried Gifftid early beta (low differentiation?), and AI x quantum for sustainable finance, AI for Good notes: AI and general tech, governance, nature finance.
   * **Analytics**: Analyzed PitchBook fund documents using Excel (e.g., PivotTable" and AI, created new categorization variables, and occasionally leveraged Python in Google Collaboratory for exploratory data manipulation and visualization.
+  * **Framer Website**: Landing page for KickImpact, integrated the "Impact Project Room" to the website. Blog availability for Nicolas to post articles. 
 * **Value Created:** Repeatable AI operating system, faster pipeline triage, standardized governance/reporting, and sharper investment narrative.
 
 ---
@@ -146,7 +147,7 @@
 
 * **Technical:**
 
-  * Streamlit logic, RAG setup, token cost modeling, GPT tuning.
+  * Python and Streamlit logic, RAG setup, token cost and API system, GPT tuning, AI tools, prompt engineering and more. 
 * **Strategic:**
 
   * GP/LP mechanics, CSRD/TNFD mapping, regenerative finance logic.
@@ -192,8 +193,12 @@ Each agent was effective but bespoke.
 Explored ESG reporting prompts but not legal/audit risk of AI output.
 → Next: Study AI governance frameworks (EU AI Act, NIST, CSRD alignment).
 
-## Secret(s) from the Internship
+## Secret(s) and insights from the Internship
 
-Real work happened between tasks
-- Your biggest contributions were often spontaneous: summarizing a doc, rephrasing a pitch mid-meeting, or finding a tool in 15 minutes that could save hours later.
+A lot of real work happened between tasks: 
+- Many contributions were often spontaneous: summarizing a doc, rephrasing a pitch mid-meeting, or finding a tool in 15 minutes that could save hours later.
 - The internship wasn’t about big “projects” but many of small, high-leverage moments.
+
+Ferréol believes that AI’s true potential is still underappreciated, while current SaaS-based AI platforms are overhyped relative to the real value they deliver.
+
+It was highly visible during this internship for Ferreol that Ai is evolving extremelyyyyy fast. 
