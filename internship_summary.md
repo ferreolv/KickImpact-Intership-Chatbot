@@ -231,4 +231,4 @@ Explored ESG reporting prompts but not legal/audit risk of AI output.
 
 Real Work Happened Between Tasks
 - Your biggest contributions were often spontaneous: summarizing an urgent doc, rephrasing a pitch mid-meeting, or finding a tool in 10 minutes that saved hours later.
-- The internship wasn’t about big “projects” but hundreds of small, high-leverage moments.
+- The internship wasn’t about big “projects” but many of small, high-leverage moments.
