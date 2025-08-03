@@ -9,11 +9,12 @@
 * **Mission:** Turn AI into a leverage layer for Kick Impact’s internal workflows and venture portfolio (deal screening → reporting → governance).
 * **Key Outputs Delivered:**
 
-  * **Kick Impact Internship AI Strategist** meta-agent + 6 venture sub-agents.
+  * **Kick Impact Internship AI Strategist** meta-agent for KickImpact as a whole + 6 venture sub-agents/copilots with more specific knowledge.
   * **Impact Project Room** (Streamlit): submission, ingestion, version tracking, dashboards, portfolio views (NCGE/NCGD).
-  * **Quarterly Report Orchestrator**: GPT-based coordinator for standardized 2-page investor updates.
-  * **Admin tooling**: prompt libraries, RAG patterns, instruction architectures.
-  * **Strategic research**: Benchmarked Naera, Clarity AI, Gifftid, LangChain, CrewAI, and AI x quantum for sustainable finance.
+  * **One Quarterly Report Orchestrator and ome Meeting transcription agent**: GPT-based coordinator for standardized 2-page investor updates AND one agent for meetings dedicated to KickImpact.
+  * **Admin tooling**: prompt engineering libraries, RAG patterns, instruction architectures.
+  * **Strategic research (Ai & Market)**: Benchmarked Naera, tried Gifftid early beta (low differentiation?), and AI x quantum for sustainable finance, AI for Good notes: AI and general tech, governance, nature finance.
+  * **Analytics**: Analyzed PitchBook fund documents using Excel (e.g., PivotTable" and AI, created new categorization variables, and occasionally leveraged Python in Google Collaboratory for exploratory data manipulation and visualization.
 * **Value Created:** Repeatable AI operating system, faster pipeline triage, standardized governance/reporting, and sharper investment narrative.
 
 ---
@@ -107,42 +108,6 @@
 
 ---
 
-## Core Deliverables
-
-### 1. Internal AI Enablement
-
-* KickImpoact meta-agent to support Nicolas:
-
-  * Board prep, memo generation, investor reports.
-* Venture copilots: CSTI, ParkActive, Nature Catalyst, AxessImpact, Impact Cert, Impetus.
-* Quarterly Report Orchestrator: standardizes 2-page investor-grade updates.
-
-### 2. Impact Project Room
-
-* Streamlit-based tool with:
-
-  * Entrepreneur & admin workflows
-  * Editable submission entries, filters, dashboards
-  * Version control, PIN logic, CSV exports
-  * NCGE/NCGD project view control
-
-### 3. Market & Tech Intelligence
-
-* Naera benchmark: paused (low moat, narrow SOM).
-* Gifftid: early beta, low differentiation.
-* Assessed CrewAI vs. LangChain orchestration.
-* AI for Good notes: AI x quantum, governance, nature finance.
-
-### 4. Portfolio Applications
-
-* CSTI: agent for replicable green bond models.
-* Nature Catalyst: filtered dashboards, fund structuring.
-* ParkActive: research on biochar carbon credits.
-* AxessImpact: tokenized governance integration.
-* Impetus: LP liquidity and co-GP strategy logic.
-
----
-
 ## KickImpact Context (Nicolas + Venture Logic)
 
 ### Nicolas Couture-Miambanzila – Founder
@@ -229,6 +194,6 @@ Explored ESG reporting prompts but not legal/audit risk of AI output.
 
 ## Secret(s) from the Internship
 
-Real Work Happened Between Tasks
-- Your biggest contributions were often spontaneous: summarizing an urgent doc, rephrasing a pitch mid-meeting, or finding a tool in 10 minutes that saved hours later.
+Real work happened between tasks
+- Your biggest contributions were often spontaneous: summarizing a doc, rephrasing a pitch mid-meeting, or finding a tool in 15 minutes that could save hours later.
 - The internship wasn’t about big “projects” but many of small, high-leverage moments.
