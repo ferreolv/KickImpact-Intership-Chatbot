@@ -82,17 +82,16 @@ if avatar_path.exists():
     st.image(str(avatar_path), width=160)
 
 # ───────────────────────────  SAMPLE QUESTIONS  ─────────────────────────── #
-with st.expander("💡 Questions you could ask", expanded=False):
+with st.expander("💡 Example of questions you could ask ", expanded=False):
     st.markdown(
         """
         - What did Ferréol build during his internship?  
         - What is KickImpact?  
         - What did Ferréol do in week 3?  
-        - What skills did Ferréol develop around AI?  
-        - Who said what during the internship?  
-        - Tell me a secret about the internship!  
+        - What skills did Ferréol develop around AI?   
         - Is Ferréol a good fit for a strategy analyst role?  
         - Who is Nicolas?  
+        - Etc...
         """
     )
 
