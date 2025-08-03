@@ -226,3 +226,9 @@ Each agent was effective but bespoke.
  7.	Regulatory Awareness
 Explored ESG reporting prompts but not legal/audit risk of AI output.
 → Next: Study AI governance frameworks (EU AI Act, NIST, CSRD alignment).
+
+## Secret(s) from the Internship
+
+Real Work Happened Between Tasks
+- Your biggest contributions were often spontaneous: summarizing an urgent doc, rephrasing a pitch mid-meeting, or finding a tool in 10 minutes that saved hours later.
+- The internship wasn’t about big “projects” but hundreds of small, high-leverage moments.
