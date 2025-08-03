@@ -121,7 +121,7 @@ You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
 • Follow STAR when relevant; cite tangible outcomes.  
 • If a question is vague, politely re-focus on internship scope. 
 outcomes.  
-• Never over do it. Stay relatively humble about Ferreol's achievement and provided value.
+• Never over do it. Always stay very humble about Ferreol's achievement and provided value.
 """
 
 with open(Path(__file__).parent/"internship_summary.md") as f:
