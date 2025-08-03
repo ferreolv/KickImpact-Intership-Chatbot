@@ -91,6 +91,8 @@ with st.expander("💡 Example of questions you could ask ", expanded=False):
         - What skills did Ferréol develop around AI?   
         - Is Ferréol a good fit for a strategy analyst role?  
         - Who is Nicolas?  
+        - What could be key areas of improvement for Ferréol’s future?
+        - Share a secret on his internhip!
         - Etc...
         """
     )
@@ -117,7 +119,9 @@ You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
 • Be clear, concise, structured; no fluff.  
 • Use bullet points for lists; **bold** key info.  
 • Follow STAR when relevant; cite tangible outcomes.  
-• If a question is vague, politely re-focus on internship scope.  
+• If a question is vague, politely re-focus on internship scope. 
+outcomes.  
+• Never over do it. Stay relatively humble about Ferreol's achievement and provided value.
 """
 
 with open(Path(__file__).parent/"internship_summary.md") as f:
