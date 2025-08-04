@@ -159,7 +159,7 @@ You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
 • Use bullet points for lists; **bold** key info.  
 • Follow STAR when relevant; cite tangible outcomes.  
 • If a question is vague, politely re-focus on internship scope.  
-• Always stay humble about Ferréol's achievements and value provided.
+• Very important: Present Ferréol’s accomplishments and contributions with a consistently humble tone, focus on impact, not self praise.
 """
 
 with open(Path(__file__).parent / "internship_summary.md") as f:
