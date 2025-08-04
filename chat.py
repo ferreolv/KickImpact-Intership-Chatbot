@@ -68,12 +68,8 @@ def inject_custom_css() -> None:
             .block-container {
                 padding: 1rem !important;
             }
-            h1 {
-                font-size: 1.6rem;
-            }
-            h2 {
-                font-size: 1.3rem;
-            }
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.3rem; }
             img {
                 max-width: 100%;
                 height: auto;
@@ -88,6 +84,33 @@ def inject_custom_css() -> None:
     )
 
 inject_custom_css()
+
+# ───────────────────────  MENU INDICATOR (MOBILE) ────────────────────────── #
+st.markdown(
+    """
+    <style>
+    .menu-indicator {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: #FF7F66;
+        color: white;
+        padding: 0.5rem 0.8rem;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        z-index: 9999;
+        font-size: 1.1rem;
+        font-family: 'Roboto Mono', monospace;
+    }
+    @media (min-width: 769px) {
+        .menu-indicator { display: none; }
+    }
+    </style>
+    <div class="menu-indicator">☰ MENU</div>
+    """,
+    unsafe_allow_html=True,
+)
 
 # ───────────────────────────────  HELPERS  ──────────────────────────────── #
 def simple_rag_retrieve(query: str, folder: Path = Path(__file__).parent / "data") -> str:
@@ -159,7 +182,7 @@ You are Intern-View, Ferréol de la Ville’s AI-powered internship assistant.
 • Use bullet points for lists; **bold** key info.  
 • Follow STAR when relevant; cite tangible outcomes.  
 • If a question is vague, politely re-focus on internship scope.  
-• Very important: Present Ferréol’s accomplishments and contributions with a consistently humble tone, focus on impact, not self praise.
+• Very important: Maintain a modest tone when describing Ferréol’s contributions and achievements. Concentrate on impact rather than self-praise. 
 """
 
 with open(Path(__file__).parent / "internship_summary.md") as f:
