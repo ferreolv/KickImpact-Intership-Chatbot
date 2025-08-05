@@ -108,7 +108,7 @@ def inject_custom_css() -> None:
                 font-size: 0.85rem;
                 font-weight: 700;
                 color: white;
-                margin-top: 4px;
+                margin-top: 3px;
                 text-shadow: 1px 1px 3px black;
             }
         }
@@ -128,7 +128,6 @@ inject_custom_css()
 st.markdown(
     """
     <div class="menu-indicator">
-        ☰ MENU
         <span> SWIPE or TAP</span>
     </div>
     """,
