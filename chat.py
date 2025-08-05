@@ -91,16 +91,14 @@ st.markdown(
     <style>
     .menu-indicator {
         position: fixed;
-        top: 50%;
-        left: 0;
-        transform: translateY(-50%);
+        top: 1rem;            /* 1rem from top */
+        left: 1rem;           /* 1rem from left */
         background-color: #FF7F66;
         color: white;
-        padding: 0.5rem 0.8rem;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
+        padding: 0.4rem 0.7rem;
+        border-radius: 4px;
         z-index: 9999;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-family: 'Roboto Mono', monospace;
     }
     @media (min-width: 769px) {
