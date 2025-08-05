@@ -90,9 +90,8 @@ st.markdown(
     """
     <style>
     .menu-indicator {
+        display: none;               /* hidden by default */
         position: fixed;
-        top: 1rem;            /* 1rem from top */
-        left: 1rem;           /* 1rem from left */
         background-color: #FF7F66;
         color: white;
         padding: 0.4rem 0.7rem;
@@ -101,8 +100,12 @@ st.markdown(
         font-size: 1rem;
         font-family: 'Roboto Mono', monospace;
     }
-    @media (min-width: 769px) {
-        .menu-indicator { display: none; }
+    @media (max-width: 768px) {
+        .menu-indicator {
+            display: block;         /* show on mobile */
+            top: 1rem;              /* 1rem from top */
+            left: 1rem;             /* 1rem from left */
+        }
     }
     </style>
     <div class="menu-indicator">☰ MENU</div>
