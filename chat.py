@@ -81,39 +81,42 @@ def inject_custom_css() -> None:
 
         /* ─── Mobile menu button ────────────────────────────────────────── */
         .menu-indicator {
-    display: none;
-}
-@media (max-width: 1024px) {
-    .menu-indicator {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        background: linear-gradient(90deg, #FF4B2B, #FF416C);
-        color: #fff;
-        font-weight: 700;
-        font-size: 1.1rem;
-        padding: 10px 16px;
-        border-radius: 30px;
-        cursor: pointer;
-        z-index: 9999;
-        border: 2px solid white;
-        box-shadow: 0 0 12px rgba(255, 65, 108, 0.7);
-        animation: flash 1.4s infinite alternate;
-    }
-    .menu-indicator span {
-        font-size: 0.8rem;
-        margin-left: 6px;
-        text-shadow: 1px 1px 3px black;
-    }
-}
-@keyframes flash {
-    0% { transform: scale(1); background: #FF4B2B; }
-    50% { transform: scale(1.08); background: #FF6A3D; }
-    100% { transform: scale(1); background: #FF4B2B; }
-}
+            display: none;
+        }
+        @media (max-width: 1024px) {
+            .menu-indicator {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                background: linear-gradient(90deg, #FF0000, #FF7F00);
+                color: #fff;
+                font-weight: 900;
+                font-size: 1.5rem;
+                padding: 1.2rem 1.6rem;
+                border-radius: 50px;
+                cursor: pointer;
+                z-index: 9999;
+                border: 3px solid white;
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+                animation: flash 1.2s infinite alternate;
+            }
+            .menu-indicator span {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: white;
+                margin-top: 4px;
+                text-shadow: 1px 1px 3px black;
+            }
+        }
+        @keyframes flash {
+            0% { transform: scale(1); box-shadow: 0 0 10px #FF0000; background: #FF0000; }
+            50% { transform: scale(1.1); box-shadow: 0 0 20px #FFD700; background: #FFD700; }
+            100% { transform: scale(1); box-shadow: 0 0 10px #FF4500; background: #FF4500; }
+        }
         </style>
         """,
         unsafe_allow_html=True,
@@ -126,7 +129,7 @@ st.markdown(
     """
     <div class="menu-indicator">
         ☰ MENU
-        <span>👈 SWIPE or TAP</span>
+        <span> SWIPE or TAP</span>
     </div>
     """,
     unsafe_allow_html=True,
