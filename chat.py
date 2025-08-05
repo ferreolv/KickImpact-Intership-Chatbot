@@ -160,8 +160,8 @@ st.title("*INTERN-VIEW*")
 st.subheader("Ferréol’s AI-Powered Internship Report")
 st.markdown(
     "Welcome to **Intern-View**, your interactive window into Ferréol’s internship at KickImpact. "
-    "Ask what he built, learned, or contributed — this chatbot has all the answers.
-    **Tools / elements built are available on if you open the tab on the left.**"
+    "Ask what he built, learned, or contributed — this chatbot has all the answers.  \n\n"
+    "_Tools / elements built are available if you open the tab on the left._"
 )
 if avatar_path.exists():
     st.image(str(avatar_path), width=160)
