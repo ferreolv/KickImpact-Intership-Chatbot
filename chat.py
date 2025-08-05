@@ -26,8 +26,6 @@ def inject_custom_css() -> None:
         section[data-testid="stSidebar"] {
             width: 230px;
             min-width: 200px;
-            border-right: 3px solid #FF7F66;
-            background-color: #fff;
         }
         .css-1d391kg {
             font-size: 1.4rem;
@@ -61,6 +59,26 @@ def inject_custom_css() -> None:
             border-radius: 50%;
         }
 
+        /* ─── Mobile overrides ───────────────────────────────────────────── */
+        @media (max-width: 768px) {
+            section[data-testid="stSidebar"] {
+                display: block;
+                width: 200px;
+            }
+            .block-container {
+                padding: 1rem !important;
+            }
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.3rem; }
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            .stTextInput > div > div > input {
+                font-size: 0.9rem;
+            }
+        }
+
         /* ─── Mobile menu button ────────────────────────────────────────── */
         .menu-indicator {
             display: none;
@@ -68,38 +86,54 @@ def inject_custom_css() -> None:
         @media (max-width: 1024px) {
             .menu-indicator {
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 position: fixed;
                 top: 1rem;
                 left: 1rem;
-                background-color: #FF4500;
+                background: linear-gradient(90deg, #FF0000, #FF7F00);
                 color: #fff;
-                font-weight: 700;
-                font-size: 1.2rem;
-                padding: 0.8rem 1rem;
+                font-weight: 900;
+                font-size: 1.5rem;
+                padding: 1.2rem 1.6rem;
                 border-radius: 50px;
                 cursor: pointer;
                 z-index: 9999;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-                border: 2px solid white;
-                animation: pulse 1.5s infinite;
+                border: 3px solid white;
+                box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+                animation: flash 1.2s infinite alternate;
+            }
+            .menu-indicator span {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: white;
+                margin-top: 4px;
+                text-shadow: 1px 1px 3px black;
             }
         }
-
-        /* ─── Pulse animation ───────────────────────────────────────────── */
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 69, 0, 0.6); }
-            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 69, 0, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 69, 0, 0); }
+        @keyframes flash {
+            0% { transform: scale(1); box-shadow: 0 0 10px #FF0000; background: #FF0000; }
+            50% { transform: scale(1.1); box-shadow: 0 0 20px #FFD700; background: #FFD700; }
+            100% { transform: scale(1); box-shadow: 0 0 10px #FF4500; background: #FF4500; }
         }
         </style>
-        <div class="menu-indicator">☰ MENU</div>
         """,
         unsafe_allow_html=True,
     )
 
 inject_custom_css()
+
+# ───────────────────────  MENU INDICATOR (MOBILE) ────────────────────────── #
+st.markdown(
+    """
+    <div class="menu-indicator">
+        ☰ MENU
+        <span>👈 SWIPE or TAP</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 # ───────────────────────────────  HELPERS  ──────────────────────────────── #
 def simple_rag_retrieve(query: str, folder: Path = Path(__file__).parent / "data") -> str:
